@@ -1,0 +1,22 @@
+<apex:page controller="CandidateDataImportCSVController">
+    <apex:form >
+        <apex:pagemessages />
+        <apex:pageBlock >
+            <apex:pageBlockSection columns="4"> 
+                  <apex:inputFile value="{!csvFileBody}"  filename="{!csvAsString}"/>
+                  <apex:commandButton value="Import Candidates" action="{!importCSVFile}" />
+                
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:pageBlock >
+             
+           <apex:pageblocktable value="{!candlist}" var="can">
+              <apex:column value="{!can.First_Name__c}" />
+              <apex:column value="{!can.Last_Name__c}" />
+              <apex:column value="{!can.Phone__c}" />
+              <apex:column value="{!can.Email__c}" />
+              <apex:column value="{!can.City__c }" />
+        </apex:pageblocktable>
+     </apex:pageBlock>
+   </apex:form>
+</apex:page>
